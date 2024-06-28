@@ -20,8 +20,8 @@ const Footer = ({ questionNumber }) =>{
     // console.log(nextQuestion)
     return(
         <div className='pt-4'>
-            <header className="bg-white py-3 px-14  rounded-[26px] flex justify-between items-center">
-                <button>
+            <header className="bg-white py-3 px-8  rounded-[26px] flex justify-between items-center lg:px-14 ">
+                <button className='hidden lg:block'>
                 </button>
                 <Link to={questionNumber > 1 ? `/quizPage/${questionNumber - 1}` : '/'}
                  className="flex gap-4 justify-center items-center bg-white border-[1px] border-[#BBBBBB] rounded-3xl text-sm font-Satoshi font-bold text-gray-700 px-4 py-2    ">

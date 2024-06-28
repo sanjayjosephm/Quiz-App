@@ -49,7 +49,7 @@ const RadialChart = ({ attended, total }) => {
   };
 
   return (
-    <div className="flex gap-4 md:flex-row sm:flex-col">
+    <div className="flex flex-col gap-4 sm:flex-row lg:flex-row">
       <div className="bg-white p-4 rounded-3xl flex gap-1 flex-col items-center">
         <div className="text-start w-full">
           <h2 className="text-base font-Satoshi font-bold text-start">

@@ -8,8 +8,8 @@ const QuizNavbar = () => {
 
     return (
         <div>
-            <header className="bg-white py-3 px-16  rounded-[26px] flex justify-between items-center">
-                <div className='flex justify-center items-center gap-6'>
+            <header className="bg-white py-3 px-10  rounded-[26px] flex justify-between items-center lg:px-16">
+                <div className='flex justify-center items-center lg:gap-6'>
                     <Link to="/">
                         <div className='p-2 hover:bg-[#EBEBEB]  hover:rounded-lg'>
                             <MoveLeft size={17}/>    

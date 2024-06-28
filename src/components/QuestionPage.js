@@ -11,7 +11,7 @@ const QuestionPage = ({ questionNumber }) => {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}`);
+                const response = await fetch(`${"https://quizbackend-vxqv.onrender.com"}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch questions');
                 }

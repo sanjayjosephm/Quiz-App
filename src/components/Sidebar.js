@@ -4,10 +4,10 @@ import { LayoutGrid } from 'lucide-react';
 
 const Sidebar = () => {
   return (
-    <div className="h-screen w-1/6 bg-white rounded-tr-[36px] rounded-br-[36px]">
+    <div className="h-screen lg:w-1/6 bg-white rounded-tr-[36px] rounded-br-[36px]">
         <div className='py-6'>
             <div className="p-4 text-center">
-                <h1 className="text-4xl font-extrabold text-[#695AE0] font-Satoshi">Øendo</h1>
+                <h1 className="text-3xl font-extrabold text-[#695AE0] font-Satoshi lg:text-4xl">Øendo</h1>
             </div>
             <nav className="my-12">
                 <ul>
