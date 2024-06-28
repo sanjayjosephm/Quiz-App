@@ -1,12 +1,12 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, elements } from "chart.js";
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const RadialChart = ({ attended, total }) => {
-  const data = {
+  const attendedData = {
     datasets: [
       {
         data: [attended, total - attended],
@@ -14,8 +14,19 @@ const RadialChart = ({ attended, total }) => {
         hoverBackgroundColor: ["#FF8C00", "#E0E0E0"],
         borderWidth: 0,
         borderColor: ["#FF8C00", "#E0E0E0"], // Customize border color
-        borderRadius: 5, // Add border radius for rounded edges
-        spacing: 3,
+      },
+    ],
+  };
+
+  const correctData = {
+    datasets: [
+      {
+        data: [attended, total - attended],
+        backgroundColor: ["#60D074", "#E0E0E0"],
+        hoverBackgroundColor: ["#60D074", "#E0E0E0"],
+        borderWidth: 0,
+        borderColor: ["#60D074", "#E0E0E0"], // Customize border color
+
       },
     ],
   };
@@ -23,16 +34,22 @@ const RadialChart = ({ attended, total }) => {
   const options = {
     cutout: "85%",
     responsive: true,
-    maintainAspectRatio: false,
+
     plugins: {
       tooltip: {
         enabled: false,
       },
     },
+    elements:{
+      arc:{
+        
+      }
+    }
+    
   };
 
   return (
-    <div className="flex gap-4 md:flex-row sm:flex-col ">
+    <div className="flex gap-4 md:flex-row sm:flex-col">
       <div className="bg-white p-4 rounded-3xl flex gap-1 flex-col items-center">
         <div className="text-start w-full">
           <h2 className="text-base font-Satoshi font-bold text-start">
@@ -40,7 +57,7 @@ const RadialChart = ({ attended, total }) => {
           </h2>
         </div>
         <div className="w-32 h-32 mb-4 relative">
-          <Doughnut data={data} options={options} />
+          <Doughnut data={attendedData} options={options} />
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-2xl font-bold">{attended}</span>
           </div>
@@ -68,11 +85,11 @@ const RadialChart = ({ attended, total }) => {
         </div>
       </div>
       <div className="bg-white p-4 rounded-3xl flex gap-1 flex-col items-center">
-      <div className="text-start w-full">
-        <h2 className="text-base font-Satoshi font-bold">Correct Answers</h2>
-      </div>
+        <div className="text-start w-full">
+          <h2 className="text-base font-Satoshi font-bold">Correct Answers</h2>
+        </div>
         <div className="w-32 h-32 mb-4 relative">
-          <Doughnut data={data} options={options} />
+          <Doughnut data={correctData} options={options} />
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-2xl font-bold">{attended}</span>
           </div>

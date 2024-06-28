@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
 const Footer = ({ questionNumber }) =>{
-    console.log(questionNumber)
+    // console.log(questionNumber)
     const navigate = useNavigate();
     let nextQuestion;
     

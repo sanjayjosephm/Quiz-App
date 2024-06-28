@@ -11,7 +11,7 @@ import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 
 const QuizPage = () => {
   const { questionNumber } = useParams();
-  console.log(questionNumber);
+
   const questionNum = parseInt(questionNumber);
 
 
