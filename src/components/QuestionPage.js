@@ -30,11 +30,11 @@ const QuestionPage = ({ questionNumber }) => {
 
     if (!question) {
         return (
-            <div className='flex justify-center items-center'>
+
                 <div className="relative bg-white h-full p-6 pt-10 rounded-3xl flex-1 font-Satoshi font-medium">
                     <CircularProgress />
                 </div>
-            </div>
+
     );
     }
     // console.log(questionData)
