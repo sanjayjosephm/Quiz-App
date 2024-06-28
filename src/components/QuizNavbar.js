@@ -8,7 +8,7 @@ const QuizNavbar = () => {
 
     return (
         <div>
-            <header className="bg-white py-3 px-10  rounded-[26px] flex justify-between items-center lg:px-16">
+            <header className="bg-white py-3 px-4  rounded-[26px] flex justify-between items-center lg:px-16">
                 <div className='flex justify-center items-center lg:gap-6'>
                     <Link to="/">
                         <div className='p-2 hover:bg-[#EBEBEB]  hover:rounded-lg'>
@@ -21,7 +21,7 @@ const QuizNavbar = () => {
                         </div>
                     </Link>
                 </div>
-                <Link to="/lastPage" className="px-5 py-2 font-Satoshi font-bold text-sm bg-[#EBEBEB] text-black rounded-button">
+                <Link to="/lastPage" className="px-5 py-2 font-Satoshi font-bold text-xs lg:text-sm bg-[#EBEBEB] text-black rounded-button">
                     End round
                 </Link>
             </header>

@@ -7,7 +7,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const QuestionPage = ({ questionNumber }) => {
     const { sidebarOpen, toggleSidebar } = useContext(SidebarContext);
     const [questionData, setQuestionData] = useState(null);
-    console.log("backend",process.env.REACT_APP_BACKEND_URL)
+    // console.log("backend",process.env.REACT_APP_BACKEND_URL)
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
@@ -43,8 +43,8 @@ const QuestionPage = ({ questionNumber }) => {
 
     return (
         <div className="relative bg-white h-full p-6 pt-10 rounded-3xl flex-1 font-Satoshi font-medium">
-            <h2 className="text-lg mb-11">Question {questionNumber}</h2>
-            <p className="mb-4 text-lg">
+            <h2 className="text-base sm:text-lg lg:text-lg mb-11">Question {questionNumber}</h2>
+            <p className="mb-4 text-base sm:text-lg lg:text-lg">
                 {question.question}
             </p>
             <Slidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />

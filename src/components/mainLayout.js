@@ -17,7 +17,7 @@ const MainLayout = () => {
               <h3 className="text-xl font-medium font-poppins">
                 Cybermind O Mania
               </h3>
-              <div className="flex text-[#838383] pb-2 gap-16 sm:gap-14 lg:gap-24">
+              <div className="flex text-[#838383] pb-2 gap-12 sm:gap-14 lg:gap-24">
                 <p className="font-poppins font-normal text-sm">
                   Total Questions: <span className="text-[#4D4D4D] font-Satoshi font-medium">120</span>
                 </p>
@@ -35,7 +35,7 @@ const MainLayout = () => {
               <h3 className="text-xl font-medium font-poppins">
                 Cybermind O Mania
               </h3>
-              <div className="flex text-[#838383] pb-2 gap-16 sm:gap-14 lg:gap-24">
+              <div className="flex text-[#838383] pb-2 gap-12 sm:gap-14 lg:gap-24">
                 <p className="font-poppins font-normal text-sm">
                   Total Questions: <span className="text-[#4D4D4D] font-Satoshi font-medium">120</span>
                 </p>
@@ -44,7 +44,7 @@ const MainLayout = () => {
                 </p>
               </div>
             </div>
-            <Link to="/quizPage/1" className="px-[28px] py-[8px] font-Satoshi text-center font-semibold text-sm bg-[#FBD748] text-black rounded-button lg:text-base lg:px-[36px] lg:py-[12px]">
+            <Link to="/quizPage/1" className="px-[28px] py-[8px] font-Satoshi text-center font-semibold text-sm bg-white border-[2px] border-[#DDDDDD] hover:bg-[#FBD748] hover:border-none text-black rounded-button lg:text-base lg:px-[36px] lg:py-[12px]">
               Solve Challenge
             </Link>
           </div>
