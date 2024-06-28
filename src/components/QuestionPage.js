@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { SidebarContext } from './SidebarContext';
 import Slidebar from './Slidebar';
+import CircularProgress from '@mui/material/CircularProgress';
+// import Box from '@mui/material/Box';
 
 const QuestionPage = ({ questionNumber }) => {
     const { sidebarOpen, toggleSidebar } = useContext(SidebarContext);
@@ -27,7 +29,11 @@ const QuestionPage = ({ questionNumber }) => {
     const question = questionData ? questionData.find(q => q.id === questionNumber) : null;
 
     if (!question) {
-        return <div>Loading...</div>;
+        return (
+            <div className="relative bg-white h-full p-6 pt-10 rounded-3xl flex-1 font-Satoshi font-medium">
+                <CircularProgress />
+            </div>
+    );
     }
     console.log(questionData)
     console.log(question.question)

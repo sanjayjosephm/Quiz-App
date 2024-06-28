@@ -1,6 +1,19 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Slidebar = ({ isOpen, toggleSidebar }) => {
+    // Function to handle navigation to quiz page
+    const navigate = useNavigate()
+    const navigateToQuiz = (index) => {
+      // Assuming '/quizPage/:id' is your quiz page route
+      console.log(index+1)
+       navigate(`/quizPage/${index}`)
+    };
+
+    const handleOnClick = (index) => {
+      toggleSidebar()
+      navigateToQuiz(index)
+    }
+
   return (
     <div className={` z-40 ${isOpen ? 'block' : 'hidden'}`}>
       <div className="absolute rounded-3xl inset-0 bg-gray-50 bg-opacity-75" onClick={toggleSidebar}></div>
@@ -21,19 +34,20 @@ const Slidebar = ({ isOpen, toggleSidebar }) => {
             {[...Array(9)].map((_, index) => (
               <a
                 key={index}
-                to={`'/quizPage/${index + 1}'`}
-                onClick={toggleSidebar}
+                // to={`'/quizPage/${index + 1}'`}
+                
+                onClick={()=>handleOnClick(index+1)}
                 className="group flex gap-2 items-center px-2 py-2 text-base leading-6 font-medium text-gray-900 rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
               >
                 <span className='rounded-full px-4 py-2 border-[2px] border-[#1B1B1B]'>{index + 1}</span>
                 <div className="flex items-center gap-10 rounded">
-                  <label htmlFor="bordered-radio-1" className="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <label htmlFor={`bordered-radio-${index}`} className="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     <div className='flex flex-col font-Satoshi font-medium text-lg justify-around'>
                       <span className="flex-1">Mcq </span>
                       <span className="text-gray-500 font-Satoshi font-normal text-xs">5 Points</span>
                     </div>
                   </label>
-                  <input id="bordered-radio-1" type="checkbox" value="" className="appearance-none w-12 h-6 border-2 border-black rounded-full bg-white checked:bg-[#039855] checked:border-0"/>
+                  <input id={`bordered-radio-${index}`} type="checkbox" value="" className="appearance-none w-12 h-6 border-2 border-black rounded-full bg-white checked:bg-[#039855] checked:border-0"/>
                 </div>
               </a>
             ))}

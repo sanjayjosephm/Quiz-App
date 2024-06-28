@@ -14,7 +14,7 @@ const LastPage = () => {
                 </Link>
             </div>
             <div className="p-14 flex flex-col justify-center items-center">
-                <h1 className="pb-16 text-[#236C11] font-poppins font-bold text-4xl text-center">Thanks you for taking the test</h1>
+                <h1 className="pb-16 text-[#236C11] font-poppins font-bold text-4xl text-center">Thank you for taking the test</h1>
                 <p className="py-8 text-[#236C11] font-poppins font-bold text-3xl">Your Report</p>
                 <div className="flex gap-7">
                     <RadialChart attended={228} total={260}/>
