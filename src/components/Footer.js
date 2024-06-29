@@ -9,17 +9,15 @@ const Footer = ({ questionNumber, selectedOption, setSelectedOption }) => {
     const { markQuestionAsAnswered } = useContext(QuizContext);
 
     const handleNextClick = () => {
-        if (selectedOption) {
-            const nextQuestion = questionNumber < 9 ? questionNumber + 1 : null;
-            if (nextQuestion) {
+        const nextQuestion = questionNumber < 9 ? questionNumber + 1 : null;
+        if (nextQuestion) {
+            if (selectedOption) {
                 markQuestionAsAnswered(questionNumber);
-                setSelectedOption(null); // Clear the selected option
-                navigate(`/quizPage/${nextQuestion}`);
-            } else {
-                navigate("/lastPage");
             }
+            setSelectedOption(null); // Clear the selected option
+            navigate(`/quizPage/${nextQuestion}`);
         } else {
-            alert("Please select an option before proceeding.");
+            navigate("/lastPage");
         }
     };
 
