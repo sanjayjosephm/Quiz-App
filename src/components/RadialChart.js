@@ -34,7 +34,8 @@ const RadialChart = ({ attended, total }) => {
   const options = {
     cutout: "85%",
     responsive: true,
-
+    rotation: 90, // Start angle (in degrees)
+    circumference: -360, 
     plugins: {
       tooltip: {
         enabled: false,
