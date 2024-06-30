@@ -6,14 +6,32 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, elements } from "chart.j
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const RadialChart = ({ attended, total }) => {
+  const createGradient = (ctx, area, color1, color2) => {
+    const gradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
+    gradient.addColorStop(0, color1);
+    gradient.addColorStop(1, color2);
+    return gradient;
+  };
+
   const attendedData = {
     datasets: [
       {
         data: [attended, total - attended],
-        backgroundColor: ["#FF8C00", "#E0E0E0"],
+        backgroundColor: (context) => {
+          const { chart } = context;
+          const { ctx, chartArea } = chart;
+
+          if (!chartArea) {
+            return;
+          }
+
+          return [
+            createGradient(ctx, chartArea, "#DC6C2D", "#FF9E68"),
+            "#E0E0E0",
+          ];
+        },
         hoverBackgroundColor: ["#FF8C00", "#E0E0E0"],
         borderWidth: 0,
-        borderColor: ["#FF8C00", "#E0E0E0"], // Customize border color
       },
     ],
   };
@@ -21,12 +39,22 @@ const RadialChart = ({ attended, total }) => {
   const correctData = {
     datasets: [
       {
-        data: [attended, total - attended],
-        backgroundColor: ["#60D074", "#E0E0E0"],
+        data: [200, 60],
+        backgroundColor: (context) => {
+          const { chart } = context;
+          const { ctx, chartArea } = chart;
+
+          if (!chartArea) {
+            return;
+          }
+
+          return [
+            createGradient(ctx, chartArea, "#1B9D34", "#60D074"),
+            "#E0E0E0",
+          ];
+        },
         hoverBackgroundColor: ["#60D074", "#E0E0E0"],
         borderWidth: 0,
-        borderColor: ["#60D074", "#E0E0E0"], // Customize border color
-
       },
     ],
   };
@@ -35,7 +63,7 @@ const RadialChart = ({ attended, total }) => {
     cutout: "85%",
     responsive: true,
     rotation: 90, // Start angle (in degrees)
-    circumference: -360, 
+    // circumference: -360, 
     plugins: {
       tooltip: {
         enabled: false,
@@ -66,7 +94,7 @@ const RadialChart = ({ attended, total }) => {
         <div className="w-full">
           <div className="flex justify-between items-center gap-8 text-sm mb-1">
             <div className="flex items-center">
-              <span className="w-3 h-3 bg-[#F58A46] inline-block font-Satoshi rounded mr-2"></span>
+              <span className="w-3 h-3 inline-block bg-gradient-to-b from-[#C8934B] to-[#F58A46] rounded mr-2"></span>
               <span className="font-Satoshi font-medium text-xs">
                 Total Questions Attended
               </span>
@@ -98,7 +126,7 @@ const RadialChart = ({ attended, total }) => {
         <div className="w-full">
           <div className="flex justify-between items-center gap-8 text-sm mb-1">
             <div className="flex items-center">
-              <span className="w-3 h-3 bg-[#60D074] inline-block font-Satoshi rounded mr-2"></span>
+              <span className="w-3 h-3 inline-block bg-gradient-to-b from-[#1BCB54] to-[#06A15E] rounded mr-2"></span>
               <span className="font-Satoshi font-medium text-xs">
                 Total Correct Answers
               </span>
